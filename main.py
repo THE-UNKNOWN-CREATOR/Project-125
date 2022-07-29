@@ -6,7 +6,8 @@ from sklearn.model_selection import train_test_split
 from PIL import Image
 import PIL.ImageOps
 
-X, y = fetch_openml("mnist_784", version = 1, return_X_y = True)
+X = np.load('image.npz')['arr_0']
+y = pd.read_csv("labels.csv")["labels"]
 
 x_train, x_test, y_train, y_test = train_test_split(X, y, random_state = 9, test_size = 2500, train_size=7500)
 
